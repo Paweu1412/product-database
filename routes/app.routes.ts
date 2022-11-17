@@ -1,5 +1,4 @@
 import express from 'express';
-
 const router = express.Router();
 
 const ApplicationControllers = require('../controllers/app.controllers');

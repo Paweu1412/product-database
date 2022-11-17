@@ -14,13 +14,13 @@ exports.listOfProducts = (_req: Request, res: Response) => {
 exports.detailsOfProduct = (req: Request, res: Response) => {
     function itemNotFound() {
         return res.json({
-            message: 'Item not found'
+            message: `Item not found`
         }); 
     }
 
     if (!req.params.id) {
         return res.json({
-            message: 'You have to provide a product id'
+            message: `A product ID isn't provided`
         }); 
     }
 
@@ -37,13 +37,13 @@ exports.detailsOfProduct = (req: Request, res: Response) => {
 exports.addNewProduct = (req: Request, res: Response) => {
     if (!req.body.name || !req.body.price ) { 
         return res.json({
-            message: `You have to provide ${(!req.body.name && !req.body.price) ? 'a name and price' : ((!req.body.name) ? 'a name' : 'price')}`
+            message: `${(!req.body.name && !req.body.price) ? 'A name and price are' : ((!req.body.name) ? 'A name is' : 'A price is')}n't provided`
         }); 
     }
 
     if (req.body.name.length > 100) { 
         return res.json({
-            message: `You can provide a name with a maximum length of 100 characters`
+            message: `Name is too long (maximum 100 characters).`
         }); 
     }
 
@@ -53,23 +53,24 @@ exports.addNewProduct = (req: Request, res: Response) => {
                 message: `Operation successful`
             }); 
         }
+
+        return res.json({
+            message: `Something went wrong`
+        }); 
     });
 
-    return res.json({
-        message: `Something has gone wrong`
-    }); 
 }
 
 exports.updateProduct = (req: Request, res: Response) => {
     if (!req.params.id || !isNumeric(req.params.id)) {
         return res.json({
-            message: `You have to provide a product id`
+            message: `Product ID can't be blank`
         }); 
     }
 
     if (!req.body.name || !req.body.price) { 
         return res.json({
-            message: `You have to provide ${(!req.body.name && !req.body.price) ? 'a name and price' : ((!req.body.name) ? 'a name' : 'price')}`
+            message: `${(!req.body.name && !req.body.price) ? 'A name and price are' : ((!req.body.name) ? 'A name is' : 'A price is')}n't provided`
         }); 
     }
 
@@ -77,12 +78,12 @@ exports.updateProduct = (req: Request, res: Response) => {
         if (!err) {
             if (result.changedRows === 0) {
                 return res.json({
-                    message: 'The product with provided id does not exist or data entered is the same, nothing has changed'
+                    message: `The product ID doesn't exist or entered data already exists, no changes have been made`
                 }); 
             }
 
             return res.json({
-                message: 'Operation successful'
+                message: `Operation successful`
             }); 
         }
     });
@@ -91,7 +92,7 @@ exports.updateProduct = (req: Request, res: Response) => {
 exports.deleteProduct = (req: Request, res: Response) => {
     if (!req.params.id || !isNumeric(req.params.id)) {
         return res.json({
-            message: 'You have to provide a product id'
+            message: `A product ID isn't provided`
         }); 
     }
 
@@ -99,12 +100,12 @@ exports.deleteProduct = (req: Request, res: Response) => {
         if (!err) {
             if (result.affectedRows === 0) {
                 return res.json({
-                    message: 'The product with provided id does not exist, nothing has changed'
+                    message: `The product with provided ID doesn't exist, no changes have been made`
                 }); 
             }
 
             return res.json({
-                message: 'Operation successful'
+                message: `Operation successful`
             }); 
         }
     });
