@@ -1,12 +1,18 @@
 import express, { Express } from 'express';
-import { Pool } from 'mysql';
 const app: Express = express();
 
+import { Pool } from 'mysql';
+
+const bodyParser = require('body-parser');
 const routes = require('./routes/app.routes');
 const mysql = require('mysql');
 require('dotenv').config();
 
 app.listen(8000, () => {});
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 app.use('/', routes);
 
 module.exports = app;
