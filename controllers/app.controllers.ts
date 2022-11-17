@@ -47,7 +47,7 @@ exports.addNewProduct = (req: Request, res: Response) => {
         }); 
     }
 
-    databasePool.query('INSERT INTO products (name, price, updateDate) VALUES (?, ?, CURRENT_DATE);', [req.body.name, req.body.price] , (err) => {
+    databasePool.query('INSERT INTO products (name, price, updateDate) VALUES (?, ?, CURRENT_DATE);', [req.body.name, req.body.price] , (err: any) => {
         if (!err) {
             return res.json({
                 message: `Operation successful`
@@ -96,7 +96,7 @@ exports.deleteProduct = (req: Request, res: Response) => {
         }); 
     }
 
-    databasePool.query('DELETE FROM products WHERE id=?', [req.params.id], (err, result) => {
+    databasePool.query('DELETE FROM products WHERE id=?', [req.params.id], (err: any, result: any) => {
         if (!err) {
             if (result.affectedRows === 0) {
                 return res.json({
