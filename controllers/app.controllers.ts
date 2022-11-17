@@ -18,10 +18,10 @@ exports.detailsOfProduct = (req: Request, res: Response) => {
         }); 
     }
 
-    if (!isNumeric(req.params.id)) { return itemNotFound(); }
+    if (!isNumeric(req.query.id)) { return itemNotFound(); }
 
-    let idFromHeader: any = parseInt(req.params.id);
-    if (!idFromHeader) { return itemNotFound(); }
+    const idFromHeader: any = req.query.id;
+    if (isNaN(idFromHeader)) { return itemNotFound(); }
     
     databasePool.query(`SELECT name, price, updateDate FROM products WHERE id=${idFromHeader}`, function (_err: string, result: string[], _fields: string) {
         result = Object.values(JSON.parse(JSON.stringify(result)));
