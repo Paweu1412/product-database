@@ -148,7 +148,7 @@ npm run dev
 ```json
 {
   "name": "Kapelusz",
-  "price": "500"
+  "price": 500
 }
 ```
 
