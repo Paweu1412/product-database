@@ -82,6 +82,8 @@ CREATE TABLE `products` (
 npm run dev
 ```
 
+Port: 8000
+
 
 ## Użycie API
 
