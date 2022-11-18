@@ -58,9 +58,9 @@ nano .env
 
 ```bash
 HOST='' # adres hosta
-USER='' # należy wprowadzić nazwę użytkownika
-PASSWORD='' # należy wprowadzić hasło
-DATABASE='' # należy wprowadzić nazwę bazy danych
+USER='' # nazwa użytkownika
+PASSWORD='' # hasło
+DATABASE='' # nazwa bazy danych
 ```
 
 ##### Import struktury bazy danych (MySQL 5.7.36)
