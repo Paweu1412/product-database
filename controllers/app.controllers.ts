@@ -86,7 +86,7 @@ exports.updateProduct = (req: Request, res: Response) => {
         }); 
     }
 
-    databasePool.query('UPDATE products SET name=?, price=?, updateDate=CURRENT_DATE WHERE id=?;', [req.body.name, req.body.price, req.params.id], (err, result) => {
+    databasePool.query('UPDATE products SET name=?, price=?, updateDate=CURRENT_DATE WHERE id=?;', [req.body.name, req.body.price, req.params.id], (err: any, result: any) => {
         if (!err) {
             if (result.changedRows === 0) {
                 return res.json({
