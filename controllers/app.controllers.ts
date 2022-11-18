@@ -41,6 +41,12 @@ exports.addNewProduct = (req: Request, res: Response) => {
         }); 
     }
 
+    if (!isNumeric(req.body.price)) {
+        return res.json({
+            message: `Product price must be a number`
+        }); 
+    }
+
     if (req.body.name.length > 100) { 
         return res.json({
             message: `Name is too long (maximum 100 characters).`
@@ -71,6 +77,12 @@ exports.updateProduct = (req: Request, res: Response) => {
     if (!req.body.name || !req.body.price) { 
         return res.json({
             message: `${(!req.body.name && !req.body.price) ? 'A name and price are' : ((!req.body.name) ? 'A name is' : 'A price is')}n't provided`
+        }); 
+    }
+
+    if (!isNumeric(req.body.price)) {
+        return res.json({
+            message: `Product price must be a number`
         }); 
     }
 
