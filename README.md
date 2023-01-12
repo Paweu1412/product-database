@@ -1,5 +1,5 @@
 
-# API dla bazy produktów
+# Baza produktów
 
 Aplikacja napisana z użyciem TypeScript w oparciu o frameworki node.js oraz express.js 🙂
 
