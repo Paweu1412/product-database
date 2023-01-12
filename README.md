@@ -1,5 +1,5 @@
 
-# Zadanie rekrutacyjne
+# API dla bazy produktów
 
 Aplikacja napisana z użyciem TypeScript w oparciu o frameworki node.js oraz express.js 🙂
 
