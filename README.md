@@ -48,7 +48,7 @@ wykorzystaniem języka Typescript.<br>
 ##### Środowisko uruchomieniowe aplikacji można zainstalować za pomocą npm
 
 ```bash 
-git clone https://github.com/Paweu1412/check-task/
+git clone https://github.com/Paweu1412/product-database/
 cd check-task
 npm install
 nano .env
